@@ -1,0 +1,48 @@
+name: Fetch pinned repos -> publish JSON
+
+on:
+  push:
+    branches: [ "main" ]
+  schedule:
+    - cron: "0 2 * * *"   # daily at 02:00 UTC (adjust as needed)
+
+jobs:
+  fetch-pinned:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install (none required, but keep)
+        run: npm ci || echo "no package.json"
+
+      - name: Run get-pinned script
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}       # create this secret in repo settings
+          PINNED_USERNAME: ${{ secrets.PINNED_USERNAME }} # optional; or pass username as arg
+          PINNED_FIRST: "8"
+        run: |
+          node --version
+          node scripts/get-pinned.js
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit pinned.json (if changed)
+        run: |
+          git add public/pinned.json || true
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: update pinned.json (GitHub Actions)"
+            git push
+          else
+            echo "No changes to commit"
+          fi

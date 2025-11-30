@@ -1,0 +1,66 @@
+@import "./colors";
+
+* {
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  font-family: 'Poppins', system-ui, sans-serif;
+  scroll-behavior: smooth;
+  z-index: 1;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+button, input, textarea {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  &.fa {
+    *{
+      font-family: 'Dana', system-ui, sans-serif !important;
+    }
+  }
+}
+
+body {
+  width: 100vw;
+  min-height: 100dvh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#app {
+  width: 100%;
+  min-height: 100%;
+}
+
+section {
+  padding: 25px 10%;
+}
+
+.code__style {
+  font-family: 'SourceCode', sans-serif;
+  color: $lightGreen;
+}
+
+// RTL Support - Basic direction and text alignment
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+
+@media screen and (max-width: 1000px) {
+  html {
+    font-size: 13px;
+  }
+}

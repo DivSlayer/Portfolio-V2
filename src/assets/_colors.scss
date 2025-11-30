@@ -1,0 +1,42 @@
+$lightGreen: #4aaf5e;
+
+// CSS Variables for theme support
+:root {
+  --bg-primary: #222;
+  --bg-secondary: rgba(34, 34, 34, 0.21);
+  --bg-card: rgba(255, 255, 255, 0.1);
+  --bg-card-hover: rgba(255, 255, 255, 0.2);
+  --text-primary: #fff;
+  --text-secondary: #7a7a7a;
+  --text-light: #bcbcbc;
+  --accent-color: #4aaf5e;
+  --icon-invert: 1; // Invert icons for dark background (white icons)
+}
+
+.light-theme {
+  --bg-primary: #f5f5f5;
+  --bg-secondary: rgba(245, 245, 245, 0.9);
+  --bg-card: rgba(255, 255, 255, 0.8);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --text-primary: #222;
+  --text-secondary: #333;
+  --text-light: #474747;
+  --accent-color: #4aaf5e;
+  --icon-invert: 0; // Don't invert icons for light background (dark icons)
+}
+
+.dark-theme {
+  --bg-primary: #222;
+  --bg-secondary: rgba(34, 34, 34, 0.21);
+  --bg-card: rgba(255, 255, 255, 0.1);
+  --bg-card-hover: rgba(255, 255, 255, 0.2);
+  --text-primary: #fff;
+  --text-secondary: #bcbcbc;
+  --text-light: #bcbcbc;
+  --accent-color: #4aaf5e;
+  --icon-invert: 1; // Invert icons for dark background (white icons)
+}
+
+// Legacy variables for backward compatibility
+$textColor: var(--text-primary);
+$lightText: var(--text-secondary);

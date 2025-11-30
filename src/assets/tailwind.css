@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* CSS Variables are defined in _colors.scss and loaded via main.scss */
+/* These Tailwind theme colors reference the CSS variables for theme support */
+@theme {
+  --color-blue: #00dffb;
+  --color-cyan: #4a91a8;
+  --color-yellow: #ff9b22;
+  --color-milky: #eaf0dc;
+  --color-navy: #121721;
+  --color-light-navy: #2b2b1e;
+  --color-light-bg: #1f1f1f;
+  --color-light-text: var(--text-secondary);
+  --color-light-green: var(--accent-color);
+  --color-light-green-sh: rgba(185, 255, 99, 0.3);
+}
